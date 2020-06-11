@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ShipRoofs</title>
+    <meta name="viewport">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0xw4tDGGBK7HsVjrMwqCQULfcxkdQEAU&libraries=places&callback=initMap"
+        async defer></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+    <div class="headerNav">
+        <span>ShipRoofs</span>
+        <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
+    </div>
+
+    <div class="headerToolBar">
+
+        <div class="menu">
+            <br />
+            <img src="assets/img/menu.svg" width="20px" height="20px" />
+
+        </div>
+
+        <div class="search">
+
+            <input type="text" placeholder="Search" id="searchBox" onchange="onSearchChangeHandler(this)">
+            <div class="img-overlay-wrap button-src">
+                <img src="assets/img/searchBackground.png" />
+                <object data="assets/img/search.svg" type="image/svg+xml" width="30px" height="30px"></object>
+            </div>
+        </div>
+
+        <div class="searchMode">
+            <select id="searchMode" name="searchMode" onchange="onSelectChangeHandler(this)" required>
+                <option></option>
+                <option value="zipCode">ZipCode</option>
+                <option value="MailAddr">Mail Address</option>
+            </select>
+        </div>
+
+        <div class="radius">
+            <input type="number" placeholder="Type radius (Km)" id="radiusChange"
+                onchange="onRadiusChangeHandler(this)">
+        </div>
+        <div class="runBtn">
+            <img src="assets/img/export.png" width="250px" />
+        </div>
+    </div>
+
+    <div id="board">
+
+        <div class="sidebar">
+            <div class="header">
+                <div class="center-item"><span>Result</span></div>
+
+                <div class="checkbox select-all">
+                    <input type="checkbox" id="html">
+                </div>
+                <span style="margin-top: 13px;">Select all</span>&nbsp;&nbsp;&nbsp;
+
+                <div id="download">
+                    <img src="assets/img/download.svg" width="20px" height="20px" />
+                </div>
+            </div>
+            <div id="dataList">
+
+            </div>
+
+        </div>
+
+        <div id="modal" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('modal').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <h3>You have to fill out the radius and select the search mode</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_search" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('modal_search').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <h3>You have to insert search text</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="map"></div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
